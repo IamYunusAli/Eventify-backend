@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: eventify_production
-  username: eventify
+  database: eventify
   password: <%= ENV["EVENTIFY_DATABASE_PASSWORD"] %>
+  url: <%= ENV[‘DATABASE_URL’] %>
