@@ -14,7 +14,6 @@ class ReservesController < ApplicationController
 
   def create
     @reserf = Reserve.where(user_id: params[:user_id], event_id: params[:event_id]).new(reserf_params)
-
     if @reserf.save
       render json: @reserf, status: :created
     else
