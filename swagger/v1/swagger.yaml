@@ -1,0 +1,73 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/users":
+    post:
+      summary: Creates a user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+    get:
+      summary: List All users
+      tags:
+      - Users
+      responses:
+        '200':
+          description: doctors displayed
+  "/users/{id}":
+    get:
+      summary: Retrieves a user
+      tags:
+      - Users
+      - Another Tag
+      parameters:
+      - username: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: user found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                required:
+                - username
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                required:
+                - username
+        '404':
+          description: user not found
+servers:
+- url: https://eventifyhub.herokuapp.com/
+  variables:
+    defaultHost:
+      default: https://eventifyhub.herokuapp.com/
