@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show update destroy]
 
   def index
-    @events = Event.where(user_id: params[:user_id])
+    @events = Event.all
 
     render json: @events
   end

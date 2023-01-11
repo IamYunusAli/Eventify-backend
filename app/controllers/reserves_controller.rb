@@ -1,7 +1,6 @@
 class ReservesController < ApplicationController
   before_action :set_reserf, only: %i[show update destroy]
 
-
   def index
     @reserves = Reserve.where(user_id: params[:user_id])
 
