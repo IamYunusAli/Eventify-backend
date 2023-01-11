@@ -4,6 +4,363 @@ info:
   title: API V1
   version: v1
 paths:
+  users/{user_id}/events:
+    post:
+      summary: Creates a event
+      tags:
+      - Events
+      parameters: []
+      responses:
+        '201':
+          description: event created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                category:
+                  type: string
+                date:
+                  type: date
+                time:
+                  type: time
+                description:
+                  type: string
+                organizer:
+                  type: string
+                location:
+                  type: string
+                price:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+              - name
+              - image
+              - category
+              - date
+              - time
+              - description
+              - organizer
+              - location
+              - price
+              - user_id
+    get:
+      summary: Retrieves a event
+      tags:
+      - Events
+      responses:
+        '200':
+          description: event found
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    image:
+                      type: string
+                    category:
+                      type: string
+                    date:
+                      type: date
+                    time:
+                      type: time
+                    description:
+                      type: string
+                    organizer:
+                      type: string
+                    location:
+                      type: string
+                    price:
+                      type: integer
+                    user_id:
+                      type: integer
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  image:
+                    type: string
+                  category:
+                    type: string
+                  date:
+                    type: date
+                  time:
+                    type: time
+                  description:
+                    type: string
+                  organizer:
+                    type: string
+                  location:
+                    type: string
+                  price:
+                    type: integer
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - name
+                - image
+                - category
+                - date
+                - time
+                - description
+                - organizer
+                - location
+                - price
+                - user_id
+        '404':
+          description: event not found
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+  users/{user_id}/events/{id}:
+    get:
+      summary: Retrieves a event
+      tags:
+      - Events
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: event found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  image:
+                    type: string
+                  category:
+                    type: string
+                  date:
+                    type: date
+                  time:
+                    type: time
+                  description:
+                    type: string
+                  organizer:
+                    type: string
+                  location:
+                    type: string
+                  price:
+                    type: integer
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - name
+                - image
+                - category
+                - date
+                - time
+                - description
+                - organizer
+                - location
+                - price
+                - user_id
+        '404':
+          description: event not found
+    delete:
+      summary: Deletes a event
+      tags:
+      - Events
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: event deleted
+  users/{user_id}/events/{event_id}/reservations:
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event_id:
+                  type: integer
+                user_id:
+                  type: integer
+                name:
+                  type: string
+                city:
+                  type: string
+                date:
+                  type: date
+              required:
+              - name
+              - city
+              - date
+              - user_id
+              - event_id
+    get:
+      summary: Retrieves a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: event_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: reservation found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  event_id:
+                    type: integer
+                  user_id:
+                    type: integer
+                  name:
+                    type: string
+                  city:
+                    type: string
+                  date:
+                    type: date
+                required:
+                - id
+                - name
+                - city
+                - date
+                - user_id
+                - event_id
+        '404':
+          description: reservation not found
+  users/{user_id}/events/{event_id}/reservations/{id}:
+    get:
+      summary: Retrieves a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: event_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: reservation found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  event_id:
+                    type: integer
+                  user_id:
+                    type: integer
+                  name:
+                    type: string
+                  city:
+                    type: string
+                  date:
+                    type: date
+                required:
+                - id
+                - name
+                - city
+                - date
+                - user_id
+                - event_id
+        '404':
+          description: reservation not found
+    delete:
+      summary: Deletes a reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: event_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: reservation deleted
+        '404':
+          description: reservation not found
   "/users":
     post:
       summary: Creates a user
