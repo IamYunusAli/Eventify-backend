@@ -33,7 +33,6 @@ RSpec.describe 'api/reservevation', type: :request do
     end
   end
 
-
   path 'users/{user_id}/events/{event_id}/reservations' do
     get 'Retrieves a reservation' do
       tags 'Reservations'
@@ -74,7 +73,6 @@ RSpec.describe 'api/reservevation', type: :request do
       parameter name: :event_id, in: :path, type: :integer
       parameter name: :id, in: :path, type: :string
 
-
       response '200', 'reservation found' do
         schema type: :object,
                properties: {
@@ -98,7 +96,9 @@ RSpec.describe 'api/reservevation', type: :request do
         run_test!
       end
     end
+  end
 
+  path 'users/{user_id}/events/{event_id}/reservations/{id}' do
     delete 'Deletes a reservation' do
       tags 'Reservations'
       parameter name: :user_id, in: :path, type: :integer
