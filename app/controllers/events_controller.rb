@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.where(user_id: params[:user_id]).new(event_params)
+    @event = Event.new(event_params)
 
     if @event.save
       render json: @event, status: :created

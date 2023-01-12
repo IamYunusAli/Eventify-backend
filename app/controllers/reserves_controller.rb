@@ -2,7 +2,7 @@ class ReservesController < ApplicationController
   before_action :set_reserf, only: %i[show update destroy]
 
   def index
-    @reserves = Reserve.where(user_id: params[:user_id])
+    @reserves = Reserve.all
 
     render json: @reserves
   end
@@ -12,7 +12,7 @@ class ReservesController < ApplicationController
   end
 
   def create
-    @reserf = Reserve.where(user_id: params[:user_id], event_id: params[:event_id]).new(reserf_params)
+    @reserf = Reserve.where(event_id: params[:event_id]).new(reserf_params)
     if @reserf.save
       render json: @reserf, status: :created
     else
