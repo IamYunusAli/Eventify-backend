@@ -167,6 +167,21 @@ To run the project, execute the following command:
 rails s
 ```
 
+### Testing
+
+To Test the project, execute the following command:
+
+Test the models
+```sh
+bundle exec rspec spec/models
+```
+
+Test the API endpoint
+```sh
+rake rswag
+```
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
