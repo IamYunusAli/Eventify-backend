@@ -22,6 +22,7 @@ class ReservesController < ApplicationController
 
   def destroy
     @reserf.destroy
+    render json: { message: 'Reserve deleted' }
   end
 
   private

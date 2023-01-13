@@ -23,6 +23,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
+    render json: { message: 'Event deleted' }
   end
 
   private
