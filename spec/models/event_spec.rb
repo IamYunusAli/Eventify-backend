@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Event Test', type: :model do
   subject do
-    @user = User.new(username: 'Yunus')
+    @user = User.new(username: 'YunusAli')
     Event.new(
       user: @user,
       name: 'ye genena Bather',

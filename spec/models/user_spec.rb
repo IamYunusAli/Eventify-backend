@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User test', type: :model do
   subject do
-    User.new(username: 'Yunus')
+    User.new(username: 'YunusAli')
   end
 
   it 'the given subject should be valid' do
@@ -14,6 +14,6 @@ RSpec.describe 'User test', type: :model do
   end
 
   it 'username to be Yunus' do
-    expect(subject.username).to eq('Yunus')
+    expect(subject.username).to eq('YunusAli')
   end
 end
