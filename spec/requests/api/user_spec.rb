@@ -30,7 +30,7 @@ RSpec.describe 'api/users', type: :request do
     get 'List All users' do
       tags 'Users'
       consumes 'application/json'
-      response '200', 'doctors displayed' do
+      response '200', 'users displayed' do
         run_test!
       end
     end
@@ -38,7 +38,7 @@ RSpec.describe 'api/users', type: :request do
 
   path '/users/{id}' do
     get 'Retrieves a user' do
-      tags 'Users', 'Another Tag'
+      tags 'Users'
       produces 'application/json', 'application/xml'
       parameter username: :id, in: :path, type: :integer
 
