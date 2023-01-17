@@ -3,5 +3,5 @@ class Reserve < ApplicationRecord
   validates :date, presence: true
   validates :city, presence: true
   belongs_to :user
-  belongs_to :event, class_name: "Event"
+  belongs_to :event, class_name: 'Event'
 end
