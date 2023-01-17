@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Reservation Test', type: :model do
   subject do
-    @user = User.new(username: 'Yunus')
+    @user = User.new(username: 'YunusAli')
     @event = Event.new(
       user: @user,
       name: 'ye genena Bather',

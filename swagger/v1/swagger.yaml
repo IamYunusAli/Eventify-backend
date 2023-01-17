@@ -4,7 +4,7 @@ info:
   title: API V1
   version: v1
 paths:
-  users/{user_id}/events:
+  events/:
     post:
       summary: Creates a event
       tags:
@@ -53,7 +53,7 @@ paths:
               - price
               - user_id
     get:
-      summary: Retrieves a event
+      summary: Retrieves all events
       tags:
       - Events
       responses:
@@ -125,15 +125,9 @@ paths:
                 - user_id
         '404':
           description: event not found
-      parameters:
-      - name: user_id
-        in: path
-        required: true
-        schema:
-          type: integer
-  users/{user_id}/events/{id}:
+  events/{id}:
     get:
-      summary: Retrieves a event
+      summary: Retrieves an event
       tags:
       - Events
       parameters:
@@ -142,11 +136,6 @@ paths:
         required: true
         schema:
           type: string
-      - name: user_id
-        in: path
-        required: true
-        schema:
-          type: integer
       responses:
         '200':
           description: event found
@@ -192,7 +181,7 @@ paths:
         '404':
           description: event not found
     delete:
-      summary: Deletes a event
+      summary: Deletes an event
       tags:
       - Events
       parameters:
@@ -201,15 +190,10 @@ paths:
         required: true
         schema:
           type: string
-      - name: user_id
-        in: path
-        required: true
-        schema:
-          type: integer
       responses:
         '204':
           description: event deleted
-  users/{user_id}/events/{event_id}/reservations:
+  reserves/:
     post:
       summary: Creates a reservation
       tags:
@@ -243,20 +227,9 @@ paths:
               - user_id
               - event_id
     get:
-      summary: Retrieves a reservation
+      summary: Retrieves all reservations
       tags:
       - Reservations
-      parameters:
-      - name: user_id
-        in: path
-        required: true
-        schema:
-          type: integer
-      - name: event_id
-        in: path
-        required: true
-        schema:
-          type: integer
       responses:
         '200':
           description: reservation found
@@ -286,22 +259,12 @@ paths:
                 - event_id
         '404':
           description: reservation not found
-  users/{user_id}/events/{event_id}/reservations/{id}:
+  reserves/{id}:
     get:
       summary: Retrieves a reservation
       tags:
       - Reservations
       parameters:
-      - name: user_id
-        in: path
-        required: true
-        schema:
-          type: integer
-      - name: event_id
-        in: path
-        required: true
-        schema:
-          type: integer
       - name: id
         in: path
         required: true
@@ -341,16 +304,6 @@ paths:
       tags:
       - Reservations
       parameters:
-      - name: user_id
-        in: path
-        required: true
-        schema:
-          type: integer
-      - name: event_id
-        in: path
-        required: true
-        schema:
-          type: integer
       - name: id
         in: path
         required: true
@@ -388,13 +341,12 @@ paths:
       - Users
       responses:
         '200':
-          description: doctors displayed
+          description: users displayed
   "/users/{id}":
     get:
       summary: Retrieves a user
       tags:
       - Users
-      - Another Tag
       parameters:
       - username: id
         in: path

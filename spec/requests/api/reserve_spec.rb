@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/reservevation', type: :request do
-  path 'users/{user_id}/events/{event_id}/reservations' do
+  path 'reserves/' do
     post 'Creates a reservation' do
       tags 'Reservations'
       consumes 'application/json'
@@ -33,13 +33,10 @@ RSpec.describe 'api/reservevation', type: :request do
     end
   end
 
-  path 'users/{user_id}/events/{event_id}/reservations' do
-    get 'Retrieves a reservation' do
+  path 'reserves/' do
+    get 'Retrieves all reservations' do
       tags 'Reservations'
       produces 'application/json'
-      parameter name: :user_id, in: :path, type: :integer
-      parameter name: :event_id, in: :path, type: :integer
-
       response '200', 'reservation found' do
         schema type: :object,
                properties: {
@@ -65,12 +62,10 @@ RSpec.describe 'api/reservevation', type: :request do
     end
   end
 
-  path 'users/{user_id}/events/{event_id}/reservations/{id}' do
+  path 'reserves/{id}' do
     get 'Retrieves a reservation' do
       tags 'Reservations'
       produces 'application/json'
-      parameter name: :user_id, in: :path, type: :integer
-      parameter name: :event_id, in: :path, type: :integer
       parameter name: :id, in: :path, type: :string
 
       response '200', 'reservation found' do
@@ -98,11 +93,9 @@ RSpec.describe 'api/reservevation', type: :request do
     end
   end
 
-  path 'users/{user_id}/events/{event_id}/reservations/{id}' do
+  path 'reserves/{id}' do
     delete 'Deletes a reservation' do
       tags 'Reservations'
-      parameter name: :user_id, in: :path, type: :integer
-      parameter name: :event_id, in: :path, type: :integer
       parameter name: :id, in: :path, type: :string
 
       response '204', 'reservation deleted' do

@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/events', type: :request do
-  path 'users/{user_id}/events' do
+  path 'events/' do
     post 'Creates a event' do
       tags 'Events'
       consumes 'application/json'
@@ -36,7 +36,7 @@ RSpec.describe 'api/events', type: :request do
     end
   end
 
-  path 'users/{user_id}/events' do
+  path 'events/' do
     get 'Retrieves events' do
       tags 'Events'
       produces 'application/json'
@@ -62,12 +62,10 @@ RSpec.describe 'api/events', type: :request do
     end
   end
 
-  path 'users/{user_id}/events' do
-    get 'Retrieves a event' do
+  path 'events/' do
+    get 'Retrieves all events' do
       tags 'Events'
       produces 'application/json'
-      parameter name: :user_id, in: :path, type: :integer
-
       response '200', 'event found' do
         schema type: :object,
                properties: {
@@ -98,12 +96,11 @@ RSpec.describe 'api/events', type: :request do
     end
   end
 
-  path 'users/{user_id}/events/{id}' do
-    get 'Retrieves a event' do
+  path 'events/{id}' do
+    get 'Retrieves an event' do
       tags 'Events'
       produces 'application/json'
       parameter name: :id, in: :path, type: :string
-      parameter name: :user_id, in: :path, type: :integer
       response '200', 'event found' do
         schema type: :object,
                properties: {
@@ -132,13 +129,11 @@ RSpec.describe 'api/events', type: :request do
     end
   end
 
-  path 'users/{user_id}/events/{id}' do
-    delete 'Deletes a event' do
+  path 'events/{id}' do
+    delete 'Deletes an event' do
       tags 'Events'
       produces 'application/json'
       parameter name: :id, in: :path, type: :string
-      parameter name: :user_id, in: :path, type: :integer
-
       response '204', 'event deleted' do
         let(:id) do
           Event.create(name: 'Event 1',
