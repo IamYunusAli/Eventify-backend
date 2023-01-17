@@ -12,12 +12,16 @@ class ReservesController < ApplicationController
   end
 
   def create
+    if(Reserve.where(user_id: params[:user_id], event_id: params[:event_id]).exists?)
+      render json: { message: 'You have already made Reservation' }
+    else
     @reserf = Reserve.new(reserf_params)
     if @reserf.save
       render json: @reserf, status: :created
     else
       render json: @reserf.errors, status: :unprocessable_entity
     end
+  end
   end
 
   def destroy
