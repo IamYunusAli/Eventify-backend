@@ -24,7 +24,7 @@ After you're finished please remove all the comments and instructions!
 
 <div align="center">
   <br/>
-
+  <img src="https://user-images.githubusercontent.com/32224137/212936605-74a4084e-09a7-4ab5-938a-6edf05f55f44.png" alt="logo" width="140"  height="auto" />
   <h3><b>Eventify app</b></h3>
 
 </div>
@@ -37,6 +37,8 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+  - [ER Diagram](#er-diagram)
+  - [API Documentaion](#api-docs)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -44,7 +46,6 @@ After you're finished please remove all the comments and instructions!
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -105,19 +106,25 @@ After you're finished please remove all the comments and instructions!
 
 <!-- Entitity Diagram-->
 
-### ER Diagram <a name="live-demo"> </a>
+## ER Diagram <a name="er-diagram"> </a>
+<img src="https://user-images.githubusercontent.com/32224137/212938567-92c2f4cf-bf48-45d3-b706-5e7f48350c03.png" alt="ER-diagram" width="800"  height="auto" />
+
 
 <!-- Api Documentation -->
 
-### API Documentaion <a name="live-demo"> API Docs</a>
+## API Documentaion <a name="api-docs"> API Docs</a>
+
+[API DOCS](https://eventifyhub.herokuapp.com/api-docs/)
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Live Demo API Endpoint<a name="live-demo"></a>
 
 > Add a link to your deployed project.
 
-- [Live Demo of API](https://eventifyhub.herokuapp.com/users)
+- [Live API Endpoints Users](https://eventifyhub.herokuapp.com/users)
+- [Live API Endpoints Events](https://eventifyhub.herokuapp.com/events)
+- [Live API Endpoints Reserves](https://eventifyhub.herokuapp.com/reserves)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -167,7 +174,7 @@ To run the project, execute the following command:
 rails s
 ```
 
-### Testing
+### run-tests
 
 To Test the project, execute the following command:
 
