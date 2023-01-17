@@ -4,7 +4,7 @@ class ReservesController < ApplicationController
   def index
     @reserves = Reserve.all
 
-    render json: @reserves
+    render json: @reserves, include: :event
   end
 
   def show
