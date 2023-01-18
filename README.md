@@ -202,6 +202,18 @@ rake rswag
 - Twitter: [@IamYunusAli](https://twitter.com/iamyunusali)
 - LinkedIn: [Yunus Ali](https://linkedin.com/in/iamyunusali)
 
+👤 *Momanyi Hassan*
+
+- GitHub: [@fullstop125](https://github.com/fullstop125)
+- LinkedIn: [momanyi-hassan](https://linkedin.com/in/momanyi-hassan-32a489180)
+- Twitter: [@moseshassany](https://twitter.com/moseshassany)
+
+👤 **Betsegaw Sebsibe**
+
+- GitHub: [@betses](https://github.com/betses)
+- LinkedIn: [Betsegaw Sebsibe](https://www.linkedin.com/in/betsegaw-sebsibe/)
+- Twitter: [@betses](https://www.twitter.com/betse_s/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
